@@ -1,20 +1,36 @@
-name: php-otp-app
+version: '3.8'
+
 services:
-  - name: php-otp-service
-    runtime: php
-    type: web
-    routes:
-      - name: php-otp-route
-        path: /
-    instance:
-      size: micro
-      regions:
-        - fra
-    env:
-      MAILOSAUR_API_KEY: your_api_key       # API Key Mailosaur
-      MAILOSAUR_SERVER_ID: your_server_id  # Server ID Mailosaur
+  php:
     build:
-      type: pack
-      builder: koyeb/php-builder
-    disk:
-      persist: true
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      MAILOSAUR_API_KEY: your_api_key
+      MAILOSAUR_SERVER_ID: your_server_id
+
+x-koyeb:
+  name: php-otp-app
+  services:
+    - name: php-otp-service
+      runtime: php
+      type: web
+      routes:
+        - name: php-otp-route
+          path: /
+      instance:
+        size: micro
+        regions:
+          - fra
+      env:
+        MAILOSAUR_API_KEY: your_api_key       # API Key Mailosaur
+        MAILOSAUR_SERVER_ID: your_server_id  # Server ID Mailosaur
+      build:
+        type: pack
+        builder: koyeb/php-builder
+      disk:
+        persist: true
