@@ -1,36 +1,20 @@
-version: '3.8'
-
+name: php-otp-app
 services:
-  php:
+  - name: php-otp-service
+    runtime: php
+    type: web
+    routes:
+      - name: php-otp-route
+        path: /
+    instance:
+      size: micro
+      regions:
+        - fra  # Pilih region yang sesuai (misalnya fra untuk Frankfurt)
+    env:
+      MAILOSAUR_API_KEY: your_api_key       # API Key Mailosaur
+      MAILOSAUR_SERVER_ID: your_server_id  # Server ID Mailosaur
     build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:80"
-    volumes:
-      - .:/var/www/html
-    environment:
-      MAILOSAUR_API_KEY: your_api_key
-      MAILOSAUR_SERVER_ID: your_server_id
-
-x-koyeb:
-  name: php-otp-app
-  services:
-    - name: php-otp-service
-      runtime: php
-      type: web
-      routes:
-        - name: php-otp-route
-          path: /
-      instance:
-        size: micro
-        regions:
-          - fra
-      env:
-        MAILOSAUR_API_KEY: your_api_key       # API Key Mailosaur
-        MAILOSAUR_SERVER_ID: your_server_id  # Server ID Mailosaur
-      build:
-        type: pack
-        builder: koyeb/php-builder
-      disk:
-        persist: true
+      type: docker
+      dockerfile: Dockerfile  # Gunakan Dockerfile untuk membangun aplikasi
+    disk:
+      persist: true  # Pastikan data disk persisten untuk aplikasi Anda
