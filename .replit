@@ -1,0 +1,99 @@
+run = """
+php -S 127.0.0.1:80 -t public &
+php -S 127.0.0.1:443 -t public &
+php -S 127.0.0.1:1080 -t public &
+php -S 127.0.0.1:3000 -t public &
+php -S 127.0.0.1:3030 -t public &
+php -S 127.0.0.1:3200 -t public &
+php -S 127.0.0.1:3211 -t public &
+php -S 127.0.0.1:4000 -t public &
+php -S 127.0.0.1:4040 -t public &
+php -S 127.0.0.1:5000 -t public &
+php -S 127.0.0.1:5050 -t public &
+php -S 127.0.0.1:6060 -t public &
+php -S 127.0.0.1:6580 -t public &
+php -S 127.0.0.1:8700 -t public &
+php -S 127.0.0.1:8888 -t public &
+php -S 127.0.0.1:9090 -t public
+"""
+modules = ["nodejs-with-prybar-18", "python-3.8", "postgresql-16", "php-8.2"]
+
+[[ports]]
+localPort = 80
+externalPort = 3000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 443
+externalPort = 3001
+exposeLocalhost = true
+
+[[ports]]
+localPort = 1080
+externalPort = 8099
+exposeLocalhost = true
+
+[[ports]]
+localPort = 3000
+externalPort = 6800
+exposeLocalhost = true
+
+[[ports]]
+localPort = 3030
+externalPort = 3002
+exposeLocalhost = true
+
+[[ports]]
+localPort = 3200
+externalPort = 8080
+exposeLocalhost = true
+
+[[ports]]
+localPort = 3211
+externalPort = 8081
+exposeLocalhost = true
+
+[[ports]]
+localPort = 4000
+externalPort = 9000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 4040
+externalPort = 6000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 5000
+externalPort = 8008
+exposeLocalhost = true
+
+[[ports]]
+localPort = 5050
+externalPort = 8000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 6060
+externalPort = 5173
+exposeLocalhost = true
+
+[[ports]]
+localPort = 6580
+externalPort = 3003
+exposeLocalhost = true
+
+[[ports]]
+localPort = 8700
+externalPort = 80
+exposeLocalhost = true
+
+[[ports]]
+localPort = 8888
+externalPort = 5000
+exposeLocalhost = true
+
+[[ports]]
+localPort = 9090
+externalPort = 4200
+exposeLocalhost = true
