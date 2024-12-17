@@ -16,7 +16,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Salin aplikasi ke dalam container
 COPY . /var/www/html
 
-# Set folder permissions
+# Set folder permissions to ensure Apache can read files
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
