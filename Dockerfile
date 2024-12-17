@@ -29,4 +29,4 @@ EXPOSE 8080
 # Jalankan Apache saat container dijalankan
 #CMD ["apache2-foreground"]
 # Jalankan PHP built-in web server di port 8080
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html", "apache2-foreground"] 
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html"] 
