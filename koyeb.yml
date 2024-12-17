@@ -18,3 +18,6 @@ services:
       dockerfile: Dockerfile  # Gunakan Dockerfile untuk membangun aplikasi
     disk:
       persist: true  # Pastikan data disk persisten untuk aplikasi Anda
+    ports:
+      - "8080:80"  # Menentukan port yang akan digunakan
+      
