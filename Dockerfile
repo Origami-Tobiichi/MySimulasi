@@ -28,4 +28,4 @@ EXPOSE 80
 EXPOSE 8080
 
 # Jalankan PHP built-in server dan Apache secara bersamaan
-CMD ["sh", "-c", "php -S 0.0.0.0:8080 -t /var/www/html & apache2-foreground"]
+CMD ["sh", "-c", "php -S 0.0.0.0:80 -t /var/www/html & apache2-foreground"]
