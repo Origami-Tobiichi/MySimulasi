@@ -24,7 +24,9 @@ RUN chown -R www-data:www-data /var/www/html \
 RUN a2enmod rewrite
 
 # Expose port 80 untuk HTTP
-EXPOSE 80
+EXPOSE 8080
 
 # Jalankan Apache saat container dijalankan
-CMD ["apache2-foreground"]
+#CMD ["apache2-foreground"]
+# Jalankan PHP built-in web server di port 8080
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html", "apache2-foreground"] 
